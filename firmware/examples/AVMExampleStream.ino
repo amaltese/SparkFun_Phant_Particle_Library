@@ -25,8 +25,8 @@
 #include "SparkFunPhant/SparkFunPhant.h"
 
 const char server[] = "data.sparkfun.com"; // Phant destination server
-const char publicKey[] = "DJjNowwjgxFR9ogvr45Q"; // Phant public key
-const char privateKey[] = "P4eKwGGek5tJVz9Ar84n"; // Phant private key
+const char publicKey[] = "wp802jK3bRiV7GArKYGr"; // Phant public key
+const char privateKey[] = "wzJp8EdANkCr82YzMN2z"; // Phant private key
 Phant phant(server, publicKey, privateKey); // Create a Phant object
 
 const int POST_RATE = 30000; // Time between posts, in ms.
@@ -66,12 +66,10 @@ int postToPhant()
 	// Use phant.add(<field>, <value>) to add data to each field.
 	// Phant requires you to update each and every field before posting,
 	// make sure all fields defined in the stream are added here.
-    phant.add("analog0", analogRead(A0));
-    phant.add("analog1", analogRead(A1));
-    phant.add("analog2", analogRead(A2));
-    phant.add("analog3", analogRead(A3));
-    phant.add("analog4", analogRead(A4));
-    phant.add("analog5", analogRead(A5));
+    phant.add("humidity", humidity);
+    phant.add("tempf", tempf);
+    phant.add("pascals", pascals);
+    phant.add("baroTemp", baroTemp);
 	
     TCPClient client;
     char response[512];
